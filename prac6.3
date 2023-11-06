@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    std::ifstream inFile("test.txt");
+
+    if (!inFile.is_open())
+    {
+        std::cerr << "Error opening the file." << std::endl;
+        return 1;
+    }
+
+    char ch;
+    int characterCount = 0;
+
+        while (inFile.get(ch))
+        {
+        characterCount++;
+    }
+    inFile.close();
+
+    std::cout << "Number of characters in the file: " << characterCount << std::endl;
+
+    return 0;
+}
