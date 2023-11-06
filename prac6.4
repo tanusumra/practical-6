@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+int main() 
+{
+        std::ifstream sourceFile("source.txt");
+           if (!sourceFile.is_open())
+           {
+        std::cerr << "Error opening the source file." << std::endl;
+        return 1;
+    }
+    std::ofstream destinationFile("destination.txt");
+    if (!destinationFile.is_open()) 
+    {
+        std::cerr << "Error opening the destination file." << std::endl;
+        return 1;
+    }
+    std::string line;
+    while (std::getline(sourceFile, line)) 
+    {
+        destinationFile << line << std::endl;
+    }
+    sourceFile.close();
+    destinationFile.close();
+
+    std::cout << "File copied successfully." << std::endl;
+
+    return 0;
+}
