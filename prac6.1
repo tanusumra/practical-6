@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() 
+{
+    std::ofstream outFile("test.txt");
+
+    if (!outFile.is_open()) 
+    {
+        std::cerr << "Error opening the file." << std::endl;
+        return 1;
+    }
+    outFile << "This is a test file." << std::endl;
+    outFile << "Hello, world!" << std::endl;
+    outFile.close();
+
+    std::cout << "Data has been written to test.txt." << std::endl;
+
+    return 0;
+}
