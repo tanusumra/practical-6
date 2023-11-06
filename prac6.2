@@ -1,0 +1,22 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+int main() 
+{
+    std::ifstream inFile("test.txt");
+
+    if (!inFile.is_open()) 
+    {
+        std::cerr << "Error opening the file." << std::endl;
+        return 1;
+    }
+
+    std::string line;
+    while (std::getline(inFile, line)) 
+    {
+        std::cout << line << std::endl;
+    }
+    inFile.close();
+    return 0;
+}
